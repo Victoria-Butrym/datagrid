@@ -15,7 +15,11 @@ class App extends Component {
       const user = {
         name: Faker.internet.userName(),
         email: Faker.internet.email(),
+        ip: Faker.internet.ip(),
         id: Faker.random.number(),
+        jobTitle: Faker.name.jobTitle(),
+        finance: Faker.finance.bic(),
+        boolean: `${Faker.random.boolean()}`,
         position: i + 1
       };
       this.setState(prevState => ({

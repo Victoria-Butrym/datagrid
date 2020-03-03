@@ -47,7 +47,9 @@
 
 .row-item:hover {
   cursor: pointer;
-  background-color: #dee0e077;
+  /* background-color: #dee0e071; */
+  background-color: #5b0b0d;
+  color: #fff;
   transition: 0.2s;
 }
 
