@@ -10,6 +10,10 @@ class App extends Component {
     users: []
   };
 
+  componentDidMount() {
+    document.title = "React/Redux datagrid";
+  }
+
   componentWillMount() {
     for (let i = 0; i < 1000; i++) {
       const user = {
@@ -28,15 +32,6 @@ class App extends Component {
     }
   }
 
-  renderUsers(user) {
-    return (
-      <div>
-        <h4>Name: {user.name}</h4>
-        <h4>Email: {user.email}</h4>
-      </div>
-    );
-  }
-
   render() {
     const { users } = this.state;
 
@@ -53,9 +48,6 @@ class App extends Component {
           Automotive Datagrid
         </h1>
         <Table data={users} />
-        {/* <div className="row-item">
-          {this.state.users.map(user => this.renderUsers(user))}
-        </div> */}
       </div>
     );
   }
