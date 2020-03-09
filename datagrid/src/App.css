@@ -124,6 +124,7 @@ th {
   background-color: #5b0b0d;
   font-weight: 500;
   border-left: 0.1rem solid #1a1d28;
+  z-index: 5;
 }
 
 td {
@@ -135,6 +136,28 @@ td {
 
 .center {
   text-align: center;
+}
+
+.sticky {
+  position: sticky;
+  left: 0;
+  color: #fff;
+  z-index: 10;
+}
+
+.position {
+  background-color: #342828;
+}
+
+.position-header {
+  z-index: 15;
+}
+
+.name-sticky {
+  position: sticky;
+  left: 4.7rem;
+  z-index: 10;
+  overflow: hidden;
 }
 
 @keyframes App-logo-spin {
