@@ -1,11 +1,12 @@
 #root {
   width: 100%;
-  height: 85%;
+  height: 95%;
 }
 
 .App {
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
 }
 
 .App-logo {
@@ -85,7 +86,6 @@
   width: 100%;
   margin-top: 2rem;
   /* height: 100%; */
-  overflow-y: scroll;
 }
 
 .table-head tr {
@@ -96,7 +96,7 @@
   height: 100%;
 }
 
-.table-head tr th {
+.table-head tr {
   font-size: 1.6rem;
   color: #5b0b0d;
 }
@@ -109,20 +109,32 @@
 
 .table-row:hover {
   cursor: pointer;
-  background-color: #5b0b0d;
-  color: #fff;
+  /* color: #fff; */
   transition: 0.2s;
+  /* background-color: #282c346e; */
+  background-color: #282c3438;
 }
 
 th {
-  padding: 0.1rem 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 0.1rem solid #1a1d28;
+  position: sticky;
+  top: 0;
+  color: #fff;
+  background-color: #5b0b0d;
+  font-weight: 500;
+  border-left: 0.1rem solid #1a1d28;
 }
 
 td {
   padding: 0.7rem 1rem;
   font-size: 1.4rem;
   font-weight: 500;
+  border-left: 0.1rem solid #1a1d28;
+}
+
+.center {
+  text-align: center;
 }
 
 @keyframes App-logo-spin {

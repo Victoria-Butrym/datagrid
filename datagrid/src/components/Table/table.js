@@ -10,7 +10,7 @@ const Table = ({ data }) => {
             <th>Name</th>
             <th>Employed</th>
             <th>Speciality</th>
-            <th>IP</th>
+            <th>Score</th>
             <th>BIC</th>
             <th>Email</th>
           </tr>
@@ -18,11 +18,11 @@ const Table = ({ data }) => {
         <tbody>
           {data.map(user => (
             <tr key={user.id} className="table-row">
-              <td>{user.position}</td>
+              <td className="center">{user.position}</td>
               <td>{user.name}</td>
-              <td>{user.boolean}</td>
+              <td className="center">{user.boolean}</td>
               <td>{user.jobTitle}</td>
-              <td>{user.ip}</td>
+              <td className="center">{user.score}</td>
               <td>{user.finance}</td>
               <td>{user.email}</td>
             </tr>
