@@ -168,3 +168,11 @@ td {
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 900px) {
+  body {
+    padding: 0;
+    width: 90%;
+    margin: auto;
+  }
+}
