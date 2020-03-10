@@ -1,6 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Table = ({ data }) => {
+const mapStateToProps = state => ({
+  users: state.users
+});
+
+const Table = ({ users }) => {
   return (
     <div className="table-wrapper">
       <table className="table">
@@ -16,7 +21,7 @@ const Table = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map(user => (
+          {users.map(user => (
             <tr key={user.id} className="table-row">
               <td className="center position sticky">{user.position}</td>
               <td className="name">{user.name}</td>
@@ -33,4 +38,4 @@ const Table = ({ data }) => {
   );
 };
 
-export default Table;
+export default connect(mapStateToProps)(Table);
