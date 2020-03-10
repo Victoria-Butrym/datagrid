@@ -33,31 +33,9 @@ import "./App.css";
 // const store = createStore(reducer);
 
 class App extends Component {
-  // state = {
-  //   users: []
-  // };
-
   componentDidMount() {
     document.title = "React/Redux datagrid";
   }
-
-  // componentWillMount() {
-  //   for (let i = 0; i < 1000; i++) {
-  //     const user = {
-  //       name: Faker.internet.userName(),
-  //       email: Faker.internet.email(),
-  //       score: Faker.random.number(),
-  //       id: i,
-  //       jobTitle: Faker.name.jobTitle(),
-  //       finance: Faker.finance.bic(),
-  //       boolean: `${Faker.random.boolean()}`,
-  //       position: i + 1
-  //     };
-  //     this.setState(prevState => ({
-  //       users: [...prevState.users, user]
-  //     }));
-  //   }
-  // }
 
   render() {
     return (
