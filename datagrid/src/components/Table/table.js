@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const mapStateToProps = state => ({
-  users: state.users
-});
+// const mapStateToProps = state => ({
+//   users: state.users.users
+// });
 
-const Table = ({ users }) => {
+const Table = ({ users, removeItem, booleanFilter }) => {
   return (
     <div className="table-wrapper">
       <table className="table">
@@ -23,9 +23,19 @@ const Table = ({ users }) => {
         <tbody>
           {users.map(user => (
             <tr key={user.id} className="table-row">
-              <td className="center position sticky">{user.position}</td>
+              <td
+                className="center position sticky"
+                onClick={() => removeItem(user.id)}
+              >
+                {user.position}
+              </td>
               <td className="name">{user.name}</td>
-              <td className="center">{user.boolean}</td>
+              <td
+                className="center"
+                onClick={() => booleanFilter(user.boolean)}
+              >
+                {user.boolean}
+              </td>
               <td>{user.jobTitle}</td>
               <td className="center">{user.score}</td>
               <td>{user.finance}</td>
@@ -38,4 +48,5 @@ const Table = ({ users }) => {
   );
 };
 
-export default connect(mapStateToProps)(Table);
+// export default connect(mapStateToProps)(Table);
+export default Table;
