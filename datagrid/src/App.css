@@ -116,8 +116,8 @@
 }
 
 th {
-  padding: 0.5rem 1rem;
-  border-bottom: 0.1rem solid #1a1d28;
+  padding: 0rem 1rem;
+  /* border-bottom: 0.1rem solid #1a1d28; */
   position: sticky;
   top: 0;
   color: #fff;

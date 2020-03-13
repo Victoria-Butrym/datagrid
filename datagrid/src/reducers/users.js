@@ -22,27 +22,62 @@ function createData() {
 const initialState = () => {
   return {
     users: createData(),
-    virtualization: true
+    virtualization: true,
+    sortScore: null,
+    itemsToDelete: []
   };
 };
 
 const users = (state = initialState(), action) => {
   switch (action.type) {
-    case "REMOVE_ITEM":
-      //   console.log(state.users.filter(item => item.id !== action.id));
-      // return newState.users.filter(item => item.id !== action.id);
-      // console.log({ ...state }.users.filter(item => item.id !== action.id));
-      // console.log(action.id === { ...state }.users[0].id);
+    case "SELECT_ITEM":
+      // console.log(action.id);
+      // return {
+      //   ...state,
+      //   users: [...state.users.filter(item => item.id !== action.id)]
+      // };
       return {
         ...state,
-        users: [...state.users.filter(item => item.id !== action.id)]
+        itemsToDelete: [...state.itemsToDelete, action.id]
+      };
+
+    case "REMOVE_ITEMS":
+      console.log(state.itemsToDelete);
+      // return {
+      //   ...state,
+      //   users: [...state.users.filter(item => item.id !== action.id)]
+      // };
+      return {
+        ...state,
+        // users: [
+        //   ...state.users.filter(f => !state.itemsToDelete.includes(f.id))
+        // ],
+        itemsToDelete: []
       };
 
     case "FILTER_TRUE":
+      console.log(action);
       return {
         ...state,
         users: [...state.users.filter(item => item.boolean === action.boolean)]
       };
+
+    case "SORT_SCORE":
+      console.log(action);
+      switch (action.value) {
+        case "up":
+          return {
+            ...state,
+            users: [...state.users.sort((a, b) => (a.score > b.score ? 1 : -1))]
+          };
+        case "down":
+          return {
+            ...state,
+            users: [...state.users.sort((a, b) => (a.score < b.score ? 1 : -1))]
+          };
+        default:
+          return state;
+      }
 
     default:
       return state;

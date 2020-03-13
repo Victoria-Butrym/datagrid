@@ -2,11 +2,15 @@ import React, { Component } from "react";
 // import { Provider } from "react-redux";
 // import store from "./reducers/controlState";
 import { connect } from "react-redux";
-
 import Table from "./components/Table/table";
 import VirtToggler from "./components/VirtualizationToggler/virtualisationToggler";
 
-import { removeItem, booleanFilter } from "./actions/actionCreator";
+import {
+  selectItem,
+  booleanFilter,
+  sortScore,
+  removeItems
+} from "./actions/actionCreator";
 
 import "./App.css";
 
@@ -16,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    const { users, removeItem, booleanFilter } = this.props;
+    const { users, selectItem, booleanFilter, sortScore } = this.props;
 
     return (
       <div className="App">
@@ -31,11 +35,13 @@ class App extends Component {
           Automotive Datagrid
         </h1>
 
-        <VirtToggler />
+        {/* <VirtToggler /> */}
+        {/* <button onClick={this.props.removeItems}>Delete Items</button> */}
         <Table
           users={users}
-          removeItem={removeItem}
+          selectItem={selectItem}
           booleanFilter={booleanFilter}
+          sortScore={sortScore}
         />
       </div>
     );
@@ -46,5 +52,5 @@ export default connect(
   state => ({
     users: state.users.users
   }),
-  { removeItem, booleanFilter }
+  { selectItem, booleanFilter, sortScore, removeItems }
 )(App);
