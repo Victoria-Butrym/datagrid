@@ -27,7 +27,8 @@ class App extends Component {
       booleanFilter,
       sortScore,
       nameSearch,
-      filters
+      filters,
+      inputText
     } = this.props;
 
     return (
@@ -52,6 +53,7 @@ class App extends Component {
           sortScore={sortScore}
           nameSearch={nameSearch}
           activeFilter={filters}
+          inputText={inputText}
         />
       </div>
     );
@@ -60,8 +62,9 @@ class App extends Component {
 
 export default connect(
   state => ({
-    users: state.users.users,
-    filters: state.filters
+    users: state.users.users.filter(user => user.name.includes(state.search)),
+    filters: state.filters,
+    inputText: state.search
   }),
   { selectItem, booleanFilter, sortScore, removeItems, nameSearch }
 )(App);

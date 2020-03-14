@@ -51,12 +51,12 @@ const users = (state = initialState(), action) => {
         itemsToDelete: []
       };
 
-    case "NAME_SEARCH":
-      console.log(action.value);
-      return {
-        ...state,
-        users: [...state.users.filter(item => item.name.includes(action.value))]
-      };
+    // case "NAME_SEARCH":
+    //   console.log(action.value);
+    //   return {
+    //     ...state,
+    //     users: [...state.users.filter(item => item.name.includes(action.value))]
+    //   };
 
     case "SORT_SCORE":
       switch (action.value) {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Select from "react-select";
 
 import { booleanOptions, scoreOptions } from "../../selectOptions";
-import { sortScore } from "../../actions/actionCreator";
+import { sortScore, nameSearch } from "../../actions/actionCreator";
 
 import { connect } from "react-redux";
 
@@ -62,8 +62,8 @@ const customStyles = {
 
 const FILTER_BTNS = [
   { text: "all", id: "all" },
-  { text: "active", id: "true" },
-  { text: "not active", id: "false" }
+  { text: "active", id: "active" },
+  { text: "not active", id: "not active" }
 ];
 
 class Table extends Component {
@@ -76,12 +76,7 @@ class Table extends Component {
     this.props.dispatch({ type: "SORT_SCORE", value: value });
   }
 
-  // toogleBooleanFunc(optionSelected) {
-  //   const value = this.getSelectedValue(optionSelected);
-  //   this.props.dispatch({ type: "BOOLEAN_FILTER", boolean: value });
-  // }
-
-  handleNameSearch = e => {
+  handleNameSearch = (e, users) => {
     const value = e.target.value;
     this.props.dispatch({ type: "NAME_SEARCH", value: value });
   };
@@ -94,11 +89,10 @@ class Table extends Component {
   }
 
   filterActiveUsers = (users, filter) => {
-    console.log(filter);
     switch (filter) {
-      case "true":
+      case "active":
         return users.filter(user => user.boolean !== "false");
-      case "false":
+      case "not active":
         return users.filter(user => user.boolean === "false");
       default:
         return users;
@@ -111,11 +105,13 @@ class Table extends Component {
       // selectItem
       booleanFilter,
       activeFilter
+      // inputText,
+      // nameSearch
       // sortScore,
       // nameSearch
     } = this.props;
     const filteredUsers = this.filterActiveUsers(users, activeFilter);
-    console.log(activeFilter);
+
     return (
       <div className="table-wrapper">
         {FILTER_BTNS.map(({ text, id }) => {
@@ -137,26 +133,13 @@ class Table extends Component {
               <th className="center sticky position-header">№</th>
               <th>
                 Name
-                {/* <Select
-                  styles={customStyles}
-                  // options={booleanOptions}
-                  isSearchable
-                  onChange={() => alert("cgange")}
-                /> */}
                 <input
                   className="input"
                   placeholder="Search..."
-                  onChange={this.handleNameSearch}
+                  onChange={e => this.handleNameSearch(e, users)}
                 />
               </th>
-              <th className="center">
-                Active
-                {/* <Select
-                  styles={customStyles}
-                  options={booleanOptions}
-                  // onChange={this.toogleBooleanFunc.bind(this)}
-                /> */}
-              </th>
+              <th className="center">Active</th>
               <th>
                 <span>Speciality</span>
                 <Select styles={customStyles} options={booleanOptions} />
@@ -166,7 +149,6 @@ class Table extends Component {
                 <Select
                   styles={customStyles}
                   options={scoreOptions}
-                  // onChange={() => sortScore(users[0].score)}
                   onChange={this.onChangeScoreFunc.bind(this)}
                 />
               </th>
