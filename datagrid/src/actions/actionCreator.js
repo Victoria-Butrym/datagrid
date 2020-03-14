@@ -9,11 +9,16 @@ export const selectItem = id => ({
 });
 
 export const booleanFilter = boolean => ({
-  type: "FILTER_TRUE",
+  type: "BOOLEAN_FILTER",
   boolean
 });
 
 export const sortScore = value => ({
   type: "SORT_SCORE",
+  value
+});
+
+export const nameSearch = value => ({
+  type: "NAME_SEARCH",
   value
 });

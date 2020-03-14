@@ -115,6 +115,14 @@
   background-color: #282c3438;
 }
 
+.table-row:active {
+  cursor: pointer;
+  color: #fff;
+  transition: 0.2s;
+  /* background-color: #282c346e; */
+  /* background-color: #282c3438; */
+}
+
 th {
   padding: 0rem 1rem;
   /* border-bottom: 0.1rem solid #1a1d28; */
@@ -158,6 +166,42 @@ td {
   left: 4.7rem;
   z-index: 10;
   overflow: hidden;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  border-radius: 0.3rem;
+  border: 0.1rem solid #ccc;
+  height: 1.5rem;
+}
+
+.active {
+  color: #fff;
+  background-color: #282c3438;
+}
+
+.filter-btn {
+  border: 0;
+  border-radius: 0.3rem;
+  margin: 0.2rem;
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+}
+
+.filter-btn:focus {
+  outline: 0;
+}
+
+.filter-btn:hover {
+  transition: 0.2s;
+  color: #fff;
+  background-color: #282c3438;
+}
+
+.active-btn {
+  color: #fff;
+  background-color: #342828;
 }
 
 @keyframes App-logo-spin {

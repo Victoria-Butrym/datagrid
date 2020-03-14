@@ -11,7 +11,8 @@ function createData() {
       jobTitle: Faker.name.jobTitle(),
       finance: Faker.finance.bic(),
       boolean: `${Faker.random.boolean()}`,
-      position: i + 1
+      position: i + 1,
+      delete: false
     };
     users.push(user);
   }
@@ -31,11 +32,6 @@ const initialState = () => {
 const users = (state = initialState(), action) => {
   switch (action.type) {
     case "SELECT_ITEM":
-      // console.log(action.id);
-      // return {
-      //   ...state,
-      //   users: [...state.users.filter(item => item.id !== action.id)]
-      // };
       return {
         ...state,
         itemsToDelete: [...state.itemsToDelete, action.id]
@@ -49,21 +45,20 @@ const users = (state = initialState(), action) => {
       // };
       return {
         ...state,
-        // users: [
-        //   ...state.users.filter(f => !state.itemsToDelete.includes(f.id))
-        // ],
+        users: [
+          ...state.users.filter(f => !state.itemsToDelete.includes(f.id))
+        ],
         itemsToDelete: []
       };
 
-    case "FILTER_TRUE":
-      console.log(action);
+    case "NAME_SEARCH":
+      console.log(action.value);
       return {
         ...state,
-        users: [...state.users.filter(item => item.boolean === action.boolean)]
+        users: [...state.users.filter(item => item.name.includes(action.value))]
       };
 
     case "SORT_SCORE":
-      console.log(action);
       switch (action.value) {
         case "up":
           return {

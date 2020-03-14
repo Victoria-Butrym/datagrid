@@ -9,7 +9,8 @@ import {
   selectItem,
   booleanFilter,
   sortScore,
-  removeItems
+  removeItems,
+  nameSearch
 } from "./actions/actionCreator";
 
 import "./App.css";
@@ -20,7 +21,14 @@ class App extends Component {
   }
 
   render() {
-    const { users, selectItem, booleanFilter, sortScore } = this.props;
+    const {
+      users,
+      selectItem,
+      booleanFilter,
+      sortScore,
+      nameSearch,
+      filters
+    } = this.props;
 
     return (
       <div className="App">
@@ -42,6 +50,8 @@ class App extends Component {
           selectItem={selectItem}
           booleanFilter={booleanFilter}
           sortScore={sortScore}
+          nameSearch={nameSearch}
+          activeFilter={filters}
         />
       </div>
     );
@@ -50,7 +60,8 @@ class App extends Component {
 
 export default connect(
   state => ({
-    users: state.users.users
+    users: state.users.users,
+    filters: state.filters
   }),
-  { selectItem, booleanFilter, sortScore, removeItems }
+  { selectItem, booleanFilter, sortScore, removeItems, nameSearch }
 )(App);
