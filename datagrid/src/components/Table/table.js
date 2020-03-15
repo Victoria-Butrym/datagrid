@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Select from "react-select";
+import { FixedSizeGrid as Grid } from "react-window";
 
-import { booleanOptions, scoreOptions } from "../../selectOptions";
+import { scoreOptions } from "../../selectOptions";
 // import { sortScore, nameSearch } from "../../actions/actionCreator";
 
 import { connect } from "react-redux";
@@ -66,6 +67,26 @@ const FILTER_BTNS = [
   { text: "not active", id: "not active" }
 ];
 
+const Cell = props => {
+  console.log(props);
+  return <span>cell</span>;
+};
+// filteredUsers.map(user => (
+//   <tr
+//     key={user.id}
+//     className="table-row"
+//     onClick={e => this.toggleItemToDelete(e, user.id)}
+//   >
+//     <td className="center position sticky">{user.position}</td>
+//     <td className="name">{user.name}</td>
+//     <td className="center">{user.boolean}</td>
+//     <td>{user.jobTitle}</td>
+//     <td className="center">{user.score}</td>
+//     <td>{user.finance}</td>
+//     <td>{user.email}</td>
+//   </tr>
+// ));
+
 class Table extends Component {
   getSelectedValue(option) {
     return option.value;
@@ -89,6 +110,7 @@ class Table extends Component {
   }
 
   filterActiveUsers = (users, filter) => {
+    console.log(this.props);
     switch (filter) {
       case "active":
         return users.filter(user => user.boolean !== "false");
@@ -161,6 +183,16 @@ class Table extends Component {
             </tr>
           </thead>
           <tbody>
+            {/* <Grid
+              columnCount={7}
+              columnWidth={100}
+              height={150}
+              rowCount={1000}
+              rowHeight={35}
+              width={1000}
+            >
+              {Cell}
+            </Grid> */}
             {filteredUsers.map(user => (
               <tr
                 key={user.id}

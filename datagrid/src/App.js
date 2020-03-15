@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import store from "./reducers/controlState";
 import { connect } from "react-redux";
 import Table from "./components/Table/table";
-import VirtToggler from "./components/VirtualizationToggler/virtualisationToggler";
+// import VirtToggler from "./components/VirtualizationToggler/virtualisationToggler";
 
 import {
   selectItem,
