@@ -103,7 +103,7 @@ class Table extends Component {
 
   handleNameSearch = e => {
     const value = e.target.value;
-    this.props.dispatch({ type: "NAME_SEARCH", value: value });
+    this.props.dispatch({ type: "TABLE_SEARCH", value: value });
   };
 
   toggleItemToDelete(e, id) {

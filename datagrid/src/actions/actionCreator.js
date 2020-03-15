@@ -19,6 +19,6 @@ export const sortScore = value => ({
 });
 
 export const nameSearch = value => ({
-  type: "NAME_SEARCH",
+  type: "TABLE_SEARCH",
   value
 });

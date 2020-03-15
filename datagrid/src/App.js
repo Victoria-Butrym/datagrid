@@ -63,10 +63,6 @@ class App extends Component {
 }
 
 function searchInUsers(searchValue, arr) {
-  // for (let key in user) {
-  //   console.log(key);
-  //   return user[key].includes(searchValue);
-  // }
   return arr.filter(obj =>
     Object.keys(obj).some(key => obj[key].toString().includes(searchValue))
   );
@@ -74,7 +70,6 @@ function searchInUsers(searchValue, arr) {
 
 export default connect(
   state => ({
-    // users: state.users.users.filter(user => searchInUsers(state.search, user)),
     users: searchInUsers(state.search, state.users.users),
     filters: state.filters,
     inputText: state.search
