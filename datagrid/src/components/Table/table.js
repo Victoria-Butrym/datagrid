@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Select from "react-select";
 
 import { booleanOptions, scoreOptions } from "../../selectOptions";
-import { sortScore, nameSearch } from "../../actions/actionCreator";
+// import { sortScore, nameSearch } from "../../actions/actionCreator";
 
 import { connect } from "react-redux";
 
@@ -76,7 +76,7 @@ class Table extends Component {
     this.props.dispatch({ type: "SORT_SCORE", value: value });
   }
 
-  handleNameSearch = (e, users) => {
+  handleNameSearch = e => {
     const value = e.target.value;
     this.props.dispatch({ type: "NAME_SEARCH", value: value });
   };
@@ -136,13 +136,17 @@ class Table extends Component {
                 <input
                   className="input"
                   placeholder="Search..."
-                  onChange={e => this.handleNameSearch(e, users)}
+                  onChange={e => this.handleNameSearch(e)}
                 />
               </th>
               <th className="center">Active</th>
               <th>
                 <span>Speciality</span>
-                <Select styles={customStyles} options={booleanOptions} />
+                <input
+                  className="input"
+                  placeholder="Search..."
+                  onChange={e => this.handleNameSearch(e)}
+                />
               </th>
               <th className="center">
                 Score

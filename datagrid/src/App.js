@@ -41,7 +41,7 @@ class App extends Component {
             width: "100%"
           }}
         >
-          Automotive Datagrid
+          React/Redux Datagrid
         </h1>
 
         {/* <VirtToggler /> */}
