@@ -89,6 +89,9 @@ const FILTER_BTNS = [
 // ));
 
 class Table extends Component {
+  state = {
+    activeColumn: React.createRef("active")
+  };
   getSelectedValue(option) {
     return option.value;
   }
@@ -119,17 +122,15 @@ class Table extends Component {
     }
   };
 
+  showHideColumn(e) {
+    const column = e.target.getAttribute("column");
+    document
+      .querySelectorAll(`td[column=${column}]`)
+      .forEach(td => (td.style.display = "block" ? "none" : "block"));
+  }
+
   render() {
-    const {
-      users,
-      // selectItem
-      booleanFilter,
-      activeFilter
-      // inputText,
-      // nameSearch
-      // sortScore,
-      // nameSearch
-    } = this.props;
+    const { users, booleanFilter, activeFilter } = this.props;
     const filteredUsers = this.filterActiveUsers(users, activeFilter);
 
     return (
@@ -147,6 +148,12 @@ class Table extends Component {
             </button>
           );
         })}
+
+        <input
+          className="input"
+          placeholder="Search..."
+          onChange={e => this.handleNameSearch(e)}
+        />
         <CSVLink
           data={filteredUsers}
           filename={"boom.csv"}
@@ -156,27 +163,22 @@ class Table extends Component {
           download csv
         </CSVLink>
         <table className="table">
-          <thead className="table-head">
+          <thead className="table-head" onClick={e => this.showHideColumn(e)}>
             <tr>
               <th className="center sticky position-header">№</th>
-              <th>
-                Name
-                <input
-                  className="input"
-                  placeholder="Search..."
-                  onChange={e => this.handleNameSearch(e)}
-                />
+              <th column="name">Name</th>
+              <th className="center" column="boolean">
+                Active
               </th>
-              <th className="center">Active</th>
-              <th>
+              <th column="speciality">
                 <span>Speciality</span>
-                <input
+                {/* <input
                   className="input"
                   placeholder="Search..."
                   onChange={e => this.handleNameSearch(e)}
-                />
+                /> */}
               </th>
-              <th className="center">
+              <th className="center" column="score">
                 Score
                 <Select
                   styles={customStyles}
@@ -184,21 +186,11 @@ class Table extends Component {
                   onChange={this.onChangeScoreFunc.bind(this)}
                 />
               </th>
-              <th>BIC</th>
-              <th>Email</th>
+              <th column="bic">BIC</th>
+              <th column="email">Email</th>
             </tr>
           </thead>
           <tbody>
-            {/* <Grid
-              columnCount={7}
-              columnWidth={100}
-              height={150}
-              rowCount={1000}
-              rowHeight={35}
-              width={1000}
-            >
-              {Cell}
-            </Grid> */}
             {filteredUsers.map(user => (
               <tr
                 key={user.id}
@@ -206,12 +198,18 @@ class Table extends Component {
                 onClick={e => this.toggleItemToDelete(e, user.id)}
               >
                 <td className="center position sticky">{user.position}</td>
-                <td className="name">{user.name}</td>
-                <td className="center">{user.boolean}</td>
-                <td>{user.jobTitle}</td>
-                <td className="center">{user.score}</td>
-                <td>{user.finance}</td>
-                <td>{user.email}</td>
+                <td className="name" column="name">
+                  {user.name}
+                </td>
+                <td className="center boolean" column="boolean">
+                  {user.boolean}
+                </td>
+                <td column="speciality">{user.jobTitle}</td>
+                <td className="center" column="score">
+                  {user.score}
+                </td>
+                <td column="bic">{user.finance}</td>
+                <td column="email">{user.email}</td>
               </tr>
             ))}
           </tbody>

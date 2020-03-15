@@ -169,11 +169,12 @@ td {
 }
 
 .input {
-  display: block;
-  width: 100%;
+  width: 78%;
   border-radius: 0.3rem;
   border: 0.1rem solid #ccc;
-  height: 1.5rem;
+  height: 2rem;
+  margin-left: 0.3rem;
+  background-color: #fff;
 }
 
 .active {
@@ -215,7 +216,7 @@ td {
   border-radius: 0.3rem;
   margin: 0 0.2rem;
   cursor: pointer;
-  padding: 0.3rem 1rem;
+  padding: 0.26rem 1rem;
   font-size: 1.4rem;
   border: 0;
   font-family: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI",
