@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import { FixedSizeGrid as Grid } from "react-window";
+import { CSVLink } from "react-csv";
 
 import { scoreOptions } from "../../selectOptions";
 // import { sortScore, nameSearch } from "../../actions/actionCreator";
@@ -149,6 +150,14 @@ class Table extends Component {
             </button>
           );
         })}
+        <CSVLink
+          data={filteredUsers}
+          filename={"boom.csv"}
+          className="btn download-btn"
+          target="_blank"
+        >
+          download csv
+        </CSVLink>
         <table className="table">
           <thead className="table-head">
             <tr>

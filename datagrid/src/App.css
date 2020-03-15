@@ -187,6 +187,10 @@ td {
   margin: 0.2rem;
   cursor: pointer;
   padding: 0.3rem 1rem;
+  background-color: #fff;
+  font-family: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
 }
 
 .filter-btn:focus {
@@ -202,6 +206,28 @@ td {
 .active-btn {
   color: #fff;
   background-color: #342828;
+}
+
+.btn {
+  text-decoration: none;
+  color: #000;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+  font-size: 1.4rem;
+}
+
+.btn:hover {
+  transition: 0.2s;
+  background-color: #282c3438;
+  color: #fff;
+}
+
+.btn:active {
+  background-color: #342828;
+  color: #fff;
 }
 
 @keyframes App-logo-spin {
