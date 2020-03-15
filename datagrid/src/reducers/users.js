@@ -38,11 +38,6 @@ const users = (state = initialState(), action) => {
       };
 
     case "REMOVE_ITEMS":
-      console.log(state.itemsToDelete);
-      // return {
-      //   ...state,
-      //   users: [...state.users.filter(item => item.id !== action.id)]
-      // };
       return {
         ...state,
         users: [
@@ -50,13 +45,6 @@ const users = (state = initialState(), action) => {
         ],
         itemsToDelete: []
       };
-
-    // case "NAME_SEARCH":
-    //   console.log(action.value);
-    //   return {
-    //     ...state,
-    //     users: [...state.users.filter(item => item.name.includes(action.value))]
-    //   };
 
     case "SORT_SCORE":
       switch (action.value) {

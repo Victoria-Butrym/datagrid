@@ -45,7 +45,9 @@ class App extends Component {
         </h1>
 
         {/* <VirtToggler /> */}
-        {/* <button onClick={this.props.removeItems}>Delete Items</button> */}
+        <button onClick={this.props.removeItems} className="btn">
+          Delete Items
+        </button>
         <Table
           users={users}
           selectItem={selectItem}
