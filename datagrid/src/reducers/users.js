@@ -23,8 +23,6 @@ function createData() {
 const initialState = () => {
   return {
     users: createData(),
-    virtualization: true,
-    sortScore: null,
     itemsToDelete: []
   };
 };

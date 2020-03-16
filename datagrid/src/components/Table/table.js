@@ -3,7 +3,7 @@ import Select from "react-select";
 // import { FixedSizeGrid as Grid } from "react-window";
 import { CSVLink } from "react-csv";
 
-import { scoreOptions } from "../../selectOptions";
+import { scoreOptions, COLUMN_BTNS, FILTER_BTNS } from "../../selectOptions";
 // import { sortScore, nameSearch } from "../../actions/actionCreator";
 
 import { connect } from "react-redux";
@@ -62,12 +62,6 @@ const customStyles = {
   })
 };
 
-const FILTER_BTNS = [
-  { text: "all", id: "all" },
-  { text: "active", id: "active" },
-  { text: "not active", id: "not active" }
-];
-
 // const Cell = props => {
 //   console.log(props);
 //   return <span>cell</span>;
@@ -122,11 +116,25 @@ class Table extends Component {
     }
   };
 
+  toggleDisplay(e, element) {
+    if (element.style.display === "none") {
+      e.target.className = "btn visible";
+      element.style.display = "table-cell";
+    } else {
+      e.target.className = "btn";
+      element.style.display = "none";
+    }
+  }
+
   showHideColumn(e) {
     const column = e.target.getAttribute("column");
-    document
-      .querySelectorAll(`td[column=${column}]`)
-      .forEach(td => (td.style.display = "block" ? "none" : "block"));
+
+    const elements = [
+      ...document.querySelectorAll(`td[column=${column}]`),
+      ...document.querySelectorAll(`th[column=${column}]`)
+    ];
+
+    elements.forEach(td => this.toggleDisplay(e, td));
   }
 
   render() {
@@ -135,19 +143,36 @@ class Table extends Component {
 
     return (
       <div className="table-wrapper">
-        {FILTER_BTNS.map(({ text, id }) => {
-          return (
-            <button
-              onClick={() => booleanFilter(id)}
-              key={id}
-              className={
-                id === activeFilter ? "filter-btn active-btn" : "filter-btn"
-              }
-            >
-              {text}
-            </button>
-          );
-        })}
+        <div className="filter-btns">
+          {FILTER_BTNS.map(({ text, id }) => {
+            return (
+              <button
+                onClick={() => booleanFilter(id)}
+                key={id}
+                className={
+                  id === activeFilter ? "filter-btn active-btn" : "filter-btn"
+                }
+              >
+                {text}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="column-btns">
+          {COLUMN_BTNS.map(({ text, id }) => {
+            return (
+              <button
+                onClick={e => this.showHideColumn(e)}
+                key={id}
+                column={id}
+                className="btn visible"
+              >
+                {text}
+              </button>
+            );
+          })}
+        </div>
 
         <input
           className="input"
@@ -172,11 +197,6 @@ class Table extends Component {
               </th>
               <th column="speciality">
                 <span>Speciality</span>
-                {/* <input
-                  className="input"
-                  placeholder="Search..."
-                  onChange={e => this.handleNameSearch(e)}
-                /> */}
               </th>
               <th className="center" column="score">
                 Score
