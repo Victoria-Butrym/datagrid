@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import store from "./reducers/controlState";
 import { connect } from "react-redux";
 import Table from "./components/Table/table";
+import { CSVLink } from "react-csv";
 // import VirtToggler from "./components/VirtualizationToggler/virtualisationToggler";
 
 import {
@@ -45,9 +46,7 @@ class App extends Component {
         </h1>
 
         {/* <VirtToggler /> */}
-        <button onClick={this.props.removeItems} className="btn">
-          Delete Items
-        </button>
+
         <Table
           users={users}
           selectItem={selectItem}
@@ -57,6 +56,17 @@ class App extends Component {
           activeFilter={filters}
           inputText={inputText}
         />
+        <button onClick={this.props.removeItems} className="btn">
+          delete Items
+        </button>
+        <CSVLink
+          data={users}
+          filename={"boom.csv"}
+          className="btn download-btn"
+          target="_blank"
+        >
+          download csv
+        </CSVLink>
       </div>
     );
   }

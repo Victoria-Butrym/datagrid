@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 // import { FixedSizeGrid as Grid } from "react-window";
-import { CSVLink } from "react-csv";
+// import { CSVLink } from "react-csv";
 
 import { scoreOptions, COLUMN_BTNS, FILTER_BTNS } from "../../selectOptions";
 // import { sortScore, nameSearch } from "../../actions/actionCreator";
@@ -179,14 +179,14 @@ class Table extends Component {
           placeholder="Search..."
           onChange={e => this.handleNameSearch(e)}
         />
-        <CSVLink
+        {/* <CSVLink
           data={filteredUsers}
           filename={"boom.csv"}
           className="btn download-btn"
           target="_blank"
         >
           download csv
-        </CSVLink>
+        </CSVLink> */}
         <table className="table">
           <thead className="table-head" onClick={e => this.showHideColumn(e)}>
             <tr>
