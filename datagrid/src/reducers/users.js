@@ -11,6 +11,10 @@ function createData() {
       jobTitle: Faker.name.jobTitle(),
       finance: Faker.finance.bic(),
       boolean: `${Faker.random.boolean()}`,
+      hired: Faker.date
+        .future(1)
+        .toString()
+        .split("GMT")[0],
       position: i + 1,
       delete: false
     };
@@ -19,6 +23,8 @@ function createData() {
 
   return users;
 }
+
+console.log(Faker.date.past(1).toString());
 
 const initialState = () => {
   return {

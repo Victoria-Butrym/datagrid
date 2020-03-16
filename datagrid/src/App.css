@@ -101,6 +101,7 @@ td {
   font-size: 1.4rem;
   font-weight: 500;
   border-left: 0.1rem solid #1a1d28;
+  text-overflow: ellipsis;
 }
 
 .center {

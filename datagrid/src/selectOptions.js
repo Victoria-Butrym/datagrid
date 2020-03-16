@@ -14,9 +14,9 @@ export const COLUMN_BTNS = [
   { id: "boolean", text: "Active" },
   { id: "speciality", text: "Speciality" },
   { id: "score", text: "Score" },
+  { id: "hired", text: "Hired" },
   { id: "bic", text: "BIC" },
   { id: "email", text: "Email" }
-  // { id: "all", text: "All" }
 ];
 
 export const FILTER_BTNS = [

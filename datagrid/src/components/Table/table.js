@@ -206,6 +206,7 @@ class Table extends Component {
                   onChange={this.onChangeScoreFunc.bind(this)}
                 />
               </th>
+              <th column="hired">Hired</th>
               <th column="bic">BIC</th>
               <th column="email">Email</th>
             </tr>
@@ -228,6 +229,7 @@ class Table extends Component {
                 <td className="center" column="score">
                   {user.score}
                 </td>
+                <td column="hired">{user.hired}</td>
                 <td column="bic">{user.finance}</td>
                 <td column="email">{user.email}</td>
               </tr>
