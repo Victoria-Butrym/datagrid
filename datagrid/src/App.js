@@ -29,7 +29,8 @@ class App extends Component {
       sortScore,
       nameSearch,
       filters,
-      inputText
+      inputText,
+      removeItems
     } = this.props;
 
     return (
@@ -56,7 +57,13 @@ class App extends Component {
           activeFilter={filters}
           inputText={inputText}
         />
-        <button onClick={this.props.removeItems} className="btn">
+        <button
+          onClick={e => {
+            e.persist();
+            removeItems();
+          }}
+          className="btn"
+        >
           delete Items
         </button>
         <CSVLink
