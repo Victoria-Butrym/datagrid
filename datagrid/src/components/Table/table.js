@@ -39,7 +39,7 @@ const customStyles = {
   }),
   placeholder: base => ({
     ...base,
-    fontSize: 10,
+    fontSize: 8,
     padding: 0
   }),
   container: base => ({
