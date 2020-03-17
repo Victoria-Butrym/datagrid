@@ -24,8 +24,6 @@ function createData() {
   return users;
 }
 
-console.log(Faker.date.past(1).toString());
-
 const initialState = () => {
   return {
     users: createData(),

@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-// import { Provider } from "react-redux";
-// import store from "./reducers/controlState";
 import { connect } from "react-redux";
 import Table from "./components/Table/table";
 import { CSVLink } from "react-csv";
-// import VirtToggler from "./components/VirtualizationToggler/virtualisationToggler";
 
 import {
   selectItem,
@@ -45,8 +42,6 @@ class App extends Component {
         >
           React/Redux Datagrid
         </h1>
-
-        {/* <VirtToggler /> */}
 
         <Table
           users={users}

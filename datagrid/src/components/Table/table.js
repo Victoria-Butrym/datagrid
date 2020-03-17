@@ -1,16 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
-// import { FixedSizeGrid as Grid } from "react-window";
-// import { CSVLink } from "react-csv";
-
 import { scoreOptions, COLUMN_BTNS, FILTER_BTNS } from "../../selectOptions";
-// import { sortScore, nameSearch } from "../../actions/actionCreator";
-
 import { connect } from "react-redux";
-
-// const mapStateToProps = state => ({
-//   users: state.users.users
-// });
 
 const customStyles = {
   menuList: base => ({
@@ -62,30 +53,7 @@ const customStyles = {
   })
 };
 
-// const Cell = props => {
-//   console.log(props);
-//   return <span>cell</span>;
-// };
-// filteredUsers.map(user => (
-//   <tr
-//     key={user.id}
-//     className="table-row"
-//     onClick={e => this.toggleItemToDelete(e, user.id)}
-//   >
-//     <td className="center position sticky">{user.position}</td>
-//     <td className="name">{user.name}</td>
-//     <td className="center">{user.boolean}</td>
-//     <td>{user.jobTitle}</td>
-//     <td className="center">{user.score}</td>
-//     <td>{user.finance}</td>
-//     <td>{user.email}</td>
-//   </tr>
-// ));
-
 class Table extends Component {
-  state = {
-    activeColumn: React.createRef("active")
-  };
   getSelectedValue(option) {
     return option.value;
   }
@@ -179,14 +147,6 @@ class Table extends Component {
           placeholder="Search..."
           onChange={e => this.handleNameSearch(e)}
         />
-        {/* <CSVLink
-          data={filteredUsers}
-          filename={"boom.csv"}
-          className="btn download-btn"
-          target="_blank"
-        >
-          download csv
-        </CSVLink> */}
         <table className="table">
           <thead className="table-head" onClick={e => this.showHideColumn(e)}>
             <tr>
