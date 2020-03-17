@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700&display=swap");
+
+html {
+  font-size: 10px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #c1c6c5;
+  background-image: url("./assets/dotstransparent.png");
+  background-position: top center;
+  width: calc(100% - 20rem);
+  padding: 3rem 10rem 0 10rem;
+  height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #1a1d28;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
